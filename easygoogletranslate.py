@@ -2,6 +2,8 @@ import concurrent.futures
 import requests
 import re
 import os
+import html
+import urllib.parse
 
 class EasyGoogleTranslate:
 
@@ -57,7 +59,8 @@ class EasyGoogleTranslate:
         self.pattern = r'(?s)class="(?:t0|result-container)">(.*?)<'
 
     def make_request(self, target_language, source_language, text, timeout):
-        url = 'https://translate.google.com/m?tl=%s&sl=%s&q=%s'%(target_language, source_language, text)
+        escaped_text = urllib.parse.quote(text.encode('utf8'))
+        url = 'https://translate.google.com/m?tl=%s&sl=%s&q=%s'%(target_language, source_language, escaped_text)
         response = requests.get(url, timeout=timeout)
         result = response.text.encode('utf8').decode('utf8')
         result = re.findall(self.pattern, result)
@@ -67,7 +70,7 @@ class EasyGoogleTranslate:
             f.write(response.text)
             f.close()
             exit(0)
-        return result[0]
+        return html.unescape(result[0])
 
     def translate(self, text, target_language='', source_language='', timeout=''):
         if not target_language:
@@ -94,6 +97,3 @@ class EasyGoogleTranslate:
         text = self.translate(f.read(), target_language, source_language, timeout)
         f.close()
         return text
-
-
-
