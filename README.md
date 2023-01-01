@@ -11,6 +11,7 @@ If source language is not specified, it will detect source language automaticall
 This application supports multi thread translation, you can use it to translate multiple languages at once.
 Detailed language list can be found here:  https://cloud.google.com/translate/docs/languages
 
+
 ## Installation:
 The easiest way to install easygoogletranslateis to download it from PyPI. Then you will be able to use the library.
 
@@ -79,3 +80,6 @@ print(result)
 # Output: ['Nasılsın?', 'Comment ca va?', 'Wie geht es Ihnen?']
 # Text inside file: How are you?
 ```
+
+## Disclaimer
+This package is not an official library and is not associated with Google. This package is only developed for educational and test purposes, can be removed if desired. Do not use this package on a real life project. If you want to use a translate service on a real project use official [Google Cloud Translate](https://cloud.google.com/translate/) service.
