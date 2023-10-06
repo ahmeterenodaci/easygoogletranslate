@@ -11,6 +11,14 @@ If source language is not specified, it will detect source language automaticall
 This application supports multi thread translation, you can use it to translate multiple languages at once.
 Detailed language list can be found here:  https://cloud.google.com/translate/docs/languages
 
+<table>
+	<tr>
+		<td>
+			Don't forget to hit the star ⭐ button
+		</td>
+	</tr>
+</table>
+
 
 ## Installation:
 The easiest way to install easygoogletranslateis to download it from PyPI. Then you will be able to use the library.
